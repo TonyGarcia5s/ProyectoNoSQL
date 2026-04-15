@@ -1,0 +1,672 @@
+{
+  "info": {
+    "name": "Proyecto Escuela API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000/api" },
+    { "key": "id", "value": "000000000000000000000001" }
+  ],
+  "item": [
+    {
+      "name": "Grupos",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/grupos" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/grupos/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/grupos",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Grupo A\",\n  \"nivel\": \"Primaria\",\n  \"seccion\": \"1\",\n  \"estado\": \"Activo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/grupos/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Grupo B\",\n  \"nivel\": \"Secundaria\",\n  \"seccion\": \"2\",\n  \"estado\": \"Inactivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/grupos/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Estudiantes",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/estudiantes" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/estudiantes/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/estudiantes",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"fechaNacimiento\": \"2010-05-15\",\n  \"genero\": \"M\",\n  \"estado\": \"Activo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/estudiantes/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"estado\": \"Inactivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/estudiantes/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Docentes",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/docentes" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/docentes/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/docentes",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"María López\",\n  \"especialidad\": \"Matemáticas\",\n  \"telefono\": \"8888-8888\",\n  \"correo\": \"maria@escuela.com\",\n  \"estado\": \"Activo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/docentes/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"especialidad\": \"Física\",\n  \"estado\": \"Inactivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/docentes/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Materias",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/materias" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/materias/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/materias",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Matemáticas\",\n  \"descripcion\": \"Álgebra y cálculo básico\",\n  \"estado\": \"Activa\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/materias/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Álgebra avanzada\",\n  \"estado\": \"Inactiva\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/materias/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cursos",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/cursos" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/cursos/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/cursos",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Matemáticas I\",\n  \"materia\": \"{{id}}\",\n  \"docente\": \"{{id}}\",\n  \"grupo\": \"{{id}}\",\n  \"estado\": \"Activo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/cursos/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Matemáticas II\",\n  \"estado\": \"Inactivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/cursos/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Notas",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/notas" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/notas/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/notas",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudiante\": \"{{id}}\",\n  \"curso\": \"{{id}}\",\n  \"periodo\": 1,\n  \"nota\": 85,\n  \"estado\": \"Registrada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/notas/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nota\": 90,\n  \"estado\": \"Revisada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/notas/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Asistencia",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/asistencia" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/asistencia/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/asistencia",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudiante\": \"{{id}}\",\n  \"fecha\": \"2026-03-30\",\n  \"estado\": \"Presente\",\n  \"observacion\": \"\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/asistencia/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Ausente\",\n  \"observacion\": \"Enfermedad\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/asistencia/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Matriculas",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/matriculas" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/matriculas/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/matriculas",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudiante\": \"{{id}}\",\n  \"periodo\": \"2026-I\",\n  \"estado\": \"Activa\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/matriculas/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Retirada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/matriculas/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagos",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/pagos" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/pagos/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/pagos",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudiante\": \"{{id}}\",\n  \"concepto\": \"Matrícula\",\n  \"monto\": 50000,\n  \"estado\": \"Pendiente\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/pagos/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Pagado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/pagos/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Padres",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/padres" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/padres/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/padres",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Carlos Pérez\",\n  \"telefono\": \"7777-7777\",\n  \"correo\": \"carlos@correo.com\",\n  \"direccion\": \"San José, Costa Rica\",\n  \"estado\": \"Activo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/padres/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"telefono\": \"6666-6666\",\n  \"estado\": \"Inactivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/padres/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Aulas",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/aulas" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/aulas/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/aulas",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreAula\": \"Aula 101\",\n  \"capacidad\": 30,\n  \"ubicacion\": \"Edificio A\",\n  \"estado\": \"Disponible\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/aulas/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacidad\": 25,\n  \"estado\": \"No disponible\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": { "method": "DELETE", "url": "{{base_url}}/aulas/{{id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Horarios",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/horarios" }
+        },
+        {
+          "name": "Get By Id",
+          "request": { "method": "GET", "url": "{{base_url}}/horarios/{{id}}" }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/horarios",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"curso\": \"{{id}}\",\n  \"aula\": \"{{id}}\",\n  \"dia\": \"Lunes\",\n  \"horaInicio\": \"07:00\",\n  \"horaFin\": \"08:00\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/horarios/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dia\": \"Martes\",\n  \"horaInicio\": \"09:00\",\n  \"horaFin\": \"10:00\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/horarios/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Evaluaciones",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/evaluaciones" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/evaluaciones/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/evaluaciones",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"curso\": \"{{id}}\",\n  \"nombre\": \"Examen Parcial I\",\n  \"porcentaje\": 25,\n  \"fecha\": \"2026-04-15\",\n  \"estado\": \"Pendiente\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/evaluaciones/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"porcentaje\": 30,\n  \"estado\": \"Aplicada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/evaluaciones/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comunicados",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/comunicados" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/comunicados/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/comunicados",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Reunión de padres\",\n  \"mensaje\": \"Se convoca a reunión el próximo viernes.\",\n  \"fecha\": \"2026-04-04\",\n  \"dirigidoA\": \"Padres\",\n  \"estado\": \"Publicado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/comunicados/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Borrador\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/comunicados/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventario",
+      "item": [
+        {
+          "name": "Get All",
+          "request": { "method": "GET", "url": "{{base_url}}/inventario" }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/inventario/{{id}}"
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/inventario",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"articulo\": \"Marcadores\",\n  \"descripcion\": \"Marcadores de pizarra azul\",\n  \"cantidad\": 50,\n  \"precio\": 500,\n  \"estado\": \"Disponible\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/inventario/{{id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cantidad\": 0,\n  \"estado\": \"Agotado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/inventario/{{id}}"
+          }
+        }
+      ]
+    }
+  ]
+}

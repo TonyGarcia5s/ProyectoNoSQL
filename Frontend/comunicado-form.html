@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Comunicado | Sistema Educativo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">SE</div>
+        <div>
+          <h2>Sistema Educativo</h2>
+          <p>Panel administrativo</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a class="nav-link" href="estudiantes.html"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
+        <a class="nav-link" href="grupos.html"><i class="fa-solid fa-users-rectangle"></i> Grupos</a>
+        <a class="nav-link" href="materias.html"><i class="fa-solid fa-book"></i> Materias</a>
+        <a class="nav-link" href="docentes.html"><i class="fa-solid fa-chalkboard-user"></i> Docentes</a>
+        <a class="nav-link" href="notas.html"><i class="fa-solid fa-square-poll-vertical"></i> Notas</a>
+        <a class="nav-link" href="asistencia.html"><i class="fa-solid fa-calendar-check"></i> Asistencia</a>
+        <a class="nav-link" href="aulas.html"><i class="fa-solid fa-school"></i> Aulas</a>
+        <a class="nav-link active" href="comunicados.html"><i class="fa-solid fa-bullhorn"></i> Comunicados</a>
+        <a class="nav-link" href="evaluaciones.html"><i class="fa-solid fa-file-pen"></i> Evaluaciones</a>
+        <a class="nav-link" href="horarios.html"><i class="fa-solid fa-clock"></i> Horarios</a>
+        <a class="nav-link" href="inventario.html"><i class="fa-solid fa-boxes-stacked"></i> Inventario</a>
+        <a class="nav-link" href="padres.html"><i class="fa-solid fa-people-roof"></i> Padres</a>
+        <a class="nav-link" href="pagos.html"><i class="fa-solid fa-money-bill-wave"></i> Pagos</a>
+        <a class="nav-link" href="matriculas.html"><i class="fa-solid fa-clipboard-list"></i> Matrículas</a>
+        <a class="nav-link" href="cursos.html"><i class="fa-solid fa-book-open-reader"></i> Cursos</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="page-tag" id="modoFormulario">Formulario</span>
+          <h1 id="tituloFormulario">Nuevo comunicado</h1>
+          <p>Completa los datos del comunicado</p>
+        </div>
+      </header>
+
+      <section class="form-page-panel">
+        <div id="mensajeFormulario" class="info-box">Completa la información.</div>
+
+        <form id="formComunicado" class="form-grid-page">
+          <input type="hidden" id="mongoId" />
+
+          <div class="form-group">
+            <label for="IdComunicado">ID Comunicado</label>
+            <input type="number" id="IdComunicado" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Titulo">Título</label>
+            <input type="text" id="Titulo" required />
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="Mensaje">Mensaje</label>
+            <input type="text" id="Mensaje" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Fecha">Fecha</label>
+            <input type="date" id="Fecha" required />
+          </div>
+
+          <div class="form-group">
+            <label for="DirigidoA">Dirigido A</label>
+            <select id="DirigidoA" required>
+              <option value="Todos">Todos</option>
+              <option value="Padres">Padres</option>
+              <option value="Docentes">Docentes</option>
+              <option value="Estudiantes">Estudiantes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Estado">Estado</label>
+            <select id="Estado" required>
+              <option value="Publicado">Publicado</option>
+              <option value="Borrador">Borrador</option>
+            </select>
+          </div>
+
+          <div class="form-actions-page">
+            <a href="comunicados.html" class="btn btn-light">Volver</a>
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-floppy-disk"></i> Guardar
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/comunicado-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagos | Sistema Educativo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">SE</div>
+        <div>
+          <h2>Sistema Educativo</h2>
+          <p>Panel administrativo</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a class="nav-link" href="estudiantes.html"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
+        <a class="nav-link" href="grupos.html"><i class="fa-solid fa-users-rectangle"></i> Grupos</a>
+        <a class="nav-link" href="materias.html"><i class="fa-solid fa-book"></i> Materias</a>
+        <a class="nav-link" href="docentes.html"><i class="fa-solid fa-chalkboard-user"></i> Docentes</a>
+        <a class="nav-link" href="notas.html"><i class="fa-solid fa-square-poll-vertical"></i> Notas</a>
+        <a class="nav-link" href="asistencia.html"><i class="fa-solid fa-calendar-check"></i> Asistencia</a>
+        <a class="nav-link" href="aulas.html"><i class="fa-solid fa-school"></i> Aulas</a>
+        <a class="nav-link" href="comunicados.html"><i class="fa-solid fa-bullhorn"></i> Comunicados</a>
+        <a class="nav-link" href="evaluaciones.html"><i class="fa-solid fa-file-pen"></i> Evaluaciones</a>
+        <a class="nav-link" href="horarios.html"><i class="fa-solid fa-clock"></i> Horarios</a>
+        <a class="nav-link" href="inventario.html"><i class="fa-solid fa-boxes-stacked"></i> Inventario</a>
+        <a class="nav-link" href="padres.html"><i class="fa-solid fa-people-roof"></i> Padres</a>
+        <a class="nav-link active" href="pagos.html"><i class="fa-solid fa-money-bill-wave"></i> Pagos</a>
+        <a class="nav-link" href="matriculas.html"><i class="fa-solid fa-clipboard-list"></i> Matrículas</a>
+        <a class="nav-link" href="cursos.html"><i class="fa-solid fa-book-open-reader"></i> Cursos</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="page-tag">Módulo</span>
+          <h1>Pagos</h1>
+          <p>Listado completo conectado al backend</p>
+        </div>
+      </header>
+
+      <section class="module-panel">
+        <div class="panel-top">
+          <div>
+            <h2>Lista de pagos</h2>
+            <p>Aquí puedes crear, editar, buscar y eliminar pagos</p>
+          </div>
+
+          <div class="panel-actions">
+            <input type="text" id="buscador" class="input-search" placeholder="Buscar por concepto..." />
+            <a href="pago-form.html" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i> Nuevo pago
+            </a>
+          </div>
+        </div>
+
+        <div id="mensajeEstado" class="info-box">Cargando pagos...</div>
+
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID Pago</th>
+                <th>ID Estudiante</th>
+                <th>Concepto</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaPagos"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/pagos.js"></script>
+</body>
+</html>
