@@ -27,6 +27,6 @@ http://localhost:PORT
 
 (Reemplazando PORT por el puerto configurado en el proyecto).
 
-Desde ahí se podrá acceder al sistema y utilizar sus funcionalidades, las cuales incluyen la gestión de estudiantes, cursos, docentes y matrículas, permitiendo realizar operaciones como crear, consultar, editar y eliminar registros.
+Desde ahí se podrá acceder al sistema y utilizar sus funcionalidades, las cuales incluyen la gestión de estudiantes, cursos, docentes y matrículas, permitiendo realizar operaciones como crear, consultar, editar y eliminar registros
 
 La información se almacena en una base de datos MongoDB, la cual crea automáticamente las colecciones al momento de insertar datos por primera vez.
