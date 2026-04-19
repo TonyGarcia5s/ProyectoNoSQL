@@ -6,6 +6,7 @@
   <title>Dashboard | Sistema Educativo</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     .dashboard-future {
@@ -53,6 +54,19 @@
     .future-wrap {
       position: relative;
       z-index: 1;
+    }
+
+    .future-wrap::before {
+      content: "";
+      position: absolute;
+      top: 120px;
+      right: 60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .future-header {
@@ -109,7 +123,7 @@
 
     .live-panel strong {
       display: block;
-      font-size: 28px;
+      font-size: 22px;
       color: #0f172a;
       margin-bottom: 4px;
     }
@@ -152,12 +166,44 @@
       background: radial-gradient(circle, rgba(37,99,235,0.16), transparent 70%);
     }
 
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(6px);
+      opacity: 0.35;
+    }
+
+    .orb-1 {
+      width: 140px;
+      height: 140px;
+      top: -30px;
+      right: -20px;
+      background: radial-gradient(circle, rgba(96,165,250,0.28), transparent 70%);
+    }
+
+    .orb-2 {
+      width: 120px;
+      height: 120px;
+      bottom: -20px;
+      left: 25%;
+      background: radial-gradient(circle, rgba(147,197,253,0.18), transparent 72%);
+    }
+
     .future-hero-main h2 {
       font-size: 34px;
       line-height: 1.15;
       margin-bottom: 12px;
       color: #0f172a;
       max-width: 700px;
+      position: relative;
+      z-index: 1;
     }
 
     .future-hero-main p {
@@ -165,12 +211,16 @@
       line-height: 1.7;
       margin-bottom: 18px;
       max-width: 720px;
+      position: relative;
+      z-index: 1;
     }
 
     .future-buttons {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .future-metric {
@@ -249,6 +299,89 @@
       font-size: 13px;
     }
 
+    .future-charts {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .future-chart-card,
+    .future-activity-card {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 14px 34px rgba(15,23,42,0.05);
+    }
+
+    .future-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .future-card-head h3 {
+      font-size: 20px;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .future-card-head p {
+      color: #64748b;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .future-chart-wrap {
+      position: relative;
+      height: 320px;
+    }
+
+    .future-activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .future-activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f8fbff;
+      border: 1px solid #e5eefc;
+    }
+
+    .future-activity-item i {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eff6ff;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .future-activity-item strong {
+      display: block;
+      font-size: 14px;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .future-activity-item span {
+      display: block;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     .future-modules {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -310,6 +443,7 @@
     @media (max-width: 1200px) {
       .future-hero,
       .micro-stats,
+      .future-charts,
       .future-modules {
         grid-template-columns: 1fr 1fr;
       }
@@ -322,6 +456,7 @@
 
       .future-hero,
       .micro-stats,
+      .future-charts,
       .future-modules {
         grid-template-columns: 1fr;
       }
@@ -338,6 +473,10 @@
         width: 100%;
         text-align: left;
       }
+
+      .future-chart-wrap {
+        height: 260px;
+      }
     }
   </style>
 </head>
@@ -345,7 +484,9 @@
   <div class="layout dashboard-future">
     <aside class="sidebar">
       <div class="brand">
-        <div class="brand-icon">SE</div>
+        <div class="brand-icon logo-brand">
+          <img src="img/logo-escuela.png" alt="Logo Escuela" class="brand-logo-img">
+        </div>
         <div>
           <h2>Sistema Educativo</h2>
           <p>Panel administrativo</p>
@@ -373,6 +514,101 @@
     </aside>
 
     <main class="main-content">
+
+      <header class="main-topbar">
+        <div class="topbar-left-pro">
+          <div class="topbar-title-block">
+            <span class="topbar-mini">Panel administrativo</span>
+            <h2>Sistema Educativo</h2>
+          </div>
+        </div>
+
+        <div class="topbar-right-pro">
+          <div class="notification-wrapper">
+            <button class="topbar-icon-btn" id="notificationBtn" title="Notificaciones">
+              <i class="fa-solid fa-bell"></i>
+              <span class="notif-dot" id="notifDot"></span>
+            </button>
+
+            <div class="notification-dropdown hidden" id="notificationDropdown">
+              <div class="notification-header">
+                <div>
+                  <h4>Notificaciones</h4>
+                  <span>Resumen del sistema</span>
+                </div>
+                <button class="mark-read-btn" id="markReadBtn">Marcar todo</button>
+              </div>
+
+              <div class="notification-list" id="notificationList">
+                <div class="notification-item unread">
+                  <div class="notification-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                  </div>
+                  <div class="notification-body">
+                    <strong>Nuevos estudiantes</strong>
+                    <p id="notifEstudiantes">Cargando estudiantes...</p>
+                    <span>Hace unos segundos</span>
+                  </div>
+                </div>
+
+                <div class="notification-item unread">
+                  <div class="notification-icon">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                  </div>
+                  <div class="notification-body">
+                    <strong>Docentes registrados</strong>
+                    <p id="notifDocentes">Cargando docentes...</p>
+                    <span>Hace unos segundos</span>
+                  </div>
+                </div>
+
+                <div class="notification-item unread">
+                  <div class="notification-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <div class="notification-body">
+                    <strong>Cursos activos</strong>
+                    <p id="notifCursos">Cargando cursos...</p>
+                    <span>Hace unos segundos</span>
+                  </div>
+                </div>
+
+                <div class="notification-item unread">
+                  <div class="notification-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                  </div>
+                  <div class="notification-body">
+                    <strong>Pagos registrados</strong>
+                    <p id="notifPagos">Cargando pagos...</p>
+                    <span>Hace unos segundos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="topbar-user-box">
+            <div class="topbar-user-avatar">
+              <img src="img/logo-escuela.png" alt="Logo Escuela" />
+            </div>
+            <div class="topbar-user-info">
+              <strong id="topbarUserName">Administrador</strong>
+              <span>Sesión activa</span>
+            </div>
+          </div>
+
+          <div class="topbar-clock-box">
+            <small>Hora actual</small>
+            <strong id="topbarClock">--:--</strong>
+          </div>
+
+          <button class="topbar-logout-btn" onclick="cerrarSesion()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Salir
+          </button>
+        </div>
+      </header>
+
       <div class="future-particles">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
@@ -386,17 +622,23 @@
             </span>
             <h1>Dashboard</h1>
             <p>Centro de control principal del sistema educativo</p>
+            <div class="user-chip" id="usuarioLogueadoChip">Administrador</div>
           </div>
 
           <div class="live-panel">
-            <small>Hora actual</small>
-            <strong id="relojDashboard">--:--</strong>
-            <span id="fechaDashboard">Cargando fecha...</span>
+            <small>Estado del día</small>
+            <strong id="fechaDashboard">Cargando fecha...</strong>
+            <span>Panel activo</span>
           </div>
         </header>
 
         <section class="future-hero">
           <div class="future-hero-main future-card">
+            <div class="hero-orbs">
+              <span class="orb orb-1"></span>
+              <span class="orb orb-2"></span>
+            </div>
+
             <span class="future-badge">
               <i class="fa-solid fa-sparkles"></i>
               Vista futurista
@@ -433,21 +675,135 @@
           </div>
 
           <div class="micro-card">
-            <i class="fa-solid fa-layer-group"></i>
-            <strong>15+</strong>
-            <span>Módulos activos</span>
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <strong id="cantidadDocentes">--</strong>
+            <span>Docentes registrados</span>
           </div>
 
           <div class="micro-card">
-            <i class="fa-solid fa-server"></i>
-            <strong>Online</strong>
-            <span>Backend conectado</span>
+            <i class="fa-solid fa-book-open-reader"></i>
+            <strong id="cantidadCursos">--</strong>
+            <span>Cursos activos</span>
           </div>
 
           <div class="micro-card">
-            <i class="fa-solid fa-shield-check"></i>
-            <strong>Seguro</strong>
-            <span>Panel administrativo</span>
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <strong id="cantidadPagos">--</strong>
+            <span>Pagos registrados</span>
+          </div>
+        </section>
+
+        <section class="future-charts">
+          <div class="future-chart-card">
+            <div class="future-card-head">
+              <div>
+                <h3>Matrícula por módulo</h3>
+                <p>Resumen visual del sistema</p>
+              </div>
+            </div>
+            <div class="future-chart-wrap">
+              <canvas id="barChartDashboard"></canvas>
+            </div>
+          </div>
+
+          <div class="future-chart-card">
+            <div class="future-card-head">
+              <div>
+                <h3>Distribución general</h3>
+                <p>Datos principales del dashboard</p>
+              </div>
+            </div>
+            <div class="future-chart-wrap">
+              <canvas id="doughnutChartDashboard"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section class="future-charts">
+          <div class="future-activity-card">
+            <div class="future-card-head">
+              <div>
+                <h3>Actividad reciente</h3>
+                <p>Resumen rápido del sistema</p>
+              </div>
+            </div>
+
+            <div class="future-activity-list">
+              <div class="future-activity-item">
+                <i class="fa-solid fa-user-plus"></i>
+                <div>
+                  <strong>Estudiantes</strong>
+                  <span id="actividadEstudiantes">Cargando información...</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-user-tie"></i>
+                <div>
+                  <strong>Docentes</strong>
+                  <span id="actividadDocentes">Cargando información...</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-folder-open"></i>
+                <div>
+                  <strong>Cursos</strong>
+                  <span id="actividadCursos">Cargando información...</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-wallet"></i>
+                <div>
+                  <strong>Pagos</strong>
+                  <span id="actividadPagos">Cargando información...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="future-activity-card">
+            <div class="future-card-head">
+              <div>
+                <h3>Estado del sistema</h3>
+                <p>Panel rápido</p>
+              </div>
+            </div>
+
+            <div class="future-activity-list">
+              <div class="future-activity-item">
+                <i class="fa-solid fa-server"></i>
+                <div>
+                  <strong>Backend conectado</strong>
+                  <span>El servidor principal está en línea.</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-database"></i>
+                <div>
+                  <strong>MongoDB</strong>
+                  <span>La base de datos está lista para consultas.</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                  <strong>Seguridad</strong>
+                  <span>Panel administrativo protegido y operativo.</span>
+                </div>
+              </div>
+
+              <div class="future-activity-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <div>
+                  <strong>Módulos activos</strong>
+                  <span>15 módulos administrativos disponibles.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -495,10 +851,59 @@
           </div>
 
           <div class="future-module">
+            <i class="top fa-solid fa-school"></i>
+            <h4>Aulas</h4>
+            <p>Administración de aulas y espacios educativos.</p>
+            <a href="aulas.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-bullhorn"></i>
+            <h4>Comunicados</h4>
+            <p>Publicación y gestión de avisos institucionales.</p>
+            <a href="comunicados.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-file-pen"></i>
+            <h4>Evaluaciones</h4>
+            <p>Gestión de pruebas, tareas y controles académicos.</p>
+            <a href="evaluaciones.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-clock"></i>
+            <h4>Horarios</h4>
+            <p>Organización de horarios escolares y académicos.</p>
+            <a href="horarios.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-boxes-stacked"></i>
+            <h4>Inventario</h4>
+            <p>Control de recursos, equipos y materiales.</p>
+            <a href="inventario.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-people-roof"></i>
+            <h4>Padres</h4>
+            <p>Gestión de responsables y contactos familiares.</p>
+            <a href="padres.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
             <i class="top fa-solid fa-money-bill-wave"></i>
             <h4>Pagos</h4>
             <p>Control financiero de pagos y conceptos.</p>
             <a href="pagos.html">Entrar al módulo</a>
+          </div>
+
+          <div class="future-module">
+            <i class="top fa-solid fa-clipboard-list"></i>
+            <h4>Matrículas</h4>
+            <p>Administración del proceso de matrícula escolar.</p>
+            <a href="matriculas.html">Entrar al módulo</a>
           </div>
 
           <div class="future-module">

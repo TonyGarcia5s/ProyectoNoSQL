@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Sistema Educativo</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-glow glow-1"></div>
+    <div class="login-glow glow-2"></div>
+
+    <div class="login-card">
+      <div class="login-left">
+        <div class="login-overlay"></div>
+
+        <div class="school-particles" aria-hidden="true">
+          <span class="particle p1"><i class="fa-solid fa-book"></i></span>
+          <span class="particle p2"><i class="fa-solid fa-pencil"></i></span>
+          <span class="particle p3"><i class="fa-solid fa-book-open"></i></span>
+          <span class="particle p4"><i class="fa-solid fa-ruler-combined"></i></span>
+          <span class="particle p5"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span class="particle p6"><i class="fa-solid fa-pen"></i></span>
+        </div>
+
+        <div class="login-left-content">
+          <div class="logo-school-wrap">
+            <img src="img/logo-escuela.png" alt="Logo de la escuela" class="logo-school" />
+          </div>
+
+          <span class="login-badge">
+            <i class="fa-solid fa-school"></i>
+            Plataforma institucional
+          </span>
+
+          <h1>Sistema Educativo</h1>
+          <p>
+            Accede al panel administrativo de la institución y gestiona
+            estudiantes, docentes, cursos, pagos, matrículas y comunicación escolar
+            desde una sola plataforma.
+          </p>
+
+          <div class="login-features">
+            <div class="feature-item">
+              <i class="fa-solid fa-user-graduate"></i>
+              <span>Control estudiantil</span>
+            </div>
+
+            <div class="feature-item">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <span>Gestión docente</span>
+            </div>
+
+            <div class="feature-item">
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <span>Administración financiera</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-right">
+        <div class="login-form-top">
+          <h2>Iniciar sesión</h2>
+          <p class="sub">Ingresa tu correo y contraseña para continuar</p>
+        </div>
+
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="correo">Correo</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="correo" placeholder="correo@escuela.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="password" placeholder="••••••••" required />
+            </div>
+          </div>
+
+          <div class="extra-row">
+            <label class="remember-me">
+              <input type="checkbox" />
+              <span>Recordarme</span>
+            </label>
+
+            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn-login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            Entrar al sistema
+          </button>
+
+          <p id="mensajeLogin" class="mensaje-login"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/inventario";
+const API_URL = "http://localhost:5000/api/inventarios";
 
 const tablaInventario = document.getElementById("tablaInventario");
 const mensajeEstado = document.getElementById("mensajeEstado");

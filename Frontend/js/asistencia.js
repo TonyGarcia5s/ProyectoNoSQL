@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/asistencia";
+const API_URL = "http://localhost:5000/api/asistencias";
 
 const tablaAsistencia = document.getElementById("tablaAsistencia");
 const mensajeEstado = document.getElementById("mensajeEstado");

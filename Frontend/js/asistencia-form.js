@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/asistencia";
+const API_URL = "http://localhost:5000/api/asistencias";
 
 const params = new URLSearchParams(window.location.search);
 const idMongo = params.get("id");
