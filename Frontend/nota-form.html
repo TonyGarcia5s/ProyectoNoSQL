@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Nota | Sistema Educativo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">SE</div>
+        <div>
+          <h2>Sistema Educativo</h2>
+          <p>Panel administrativo</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a class="nav-link" href="estudiantes.html"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
+        <a class="nav-link" href="grupos.html"><i class="fa-solid fa-users-rectangle"></i> Grupos</a>
+        <a class="nav-link" href="materias.html"><i class="fa-solid fa-book"></i> Materias</a>
+        <a class="nav-link" href="docentes.html"><i class="fa-solid fa-chalkboard-user"></i> Docentes</a>
+        <a class="nav-link active" href="notas.html"><i class="fa-solid fa-square-poll-vertical"></i> Notas</a>
+        <a class="nav-link" href="asistencia.html"><i class="fa-solid fa-calendar-check"></i> Asistencia</a>
+        <a class="nav-link" href="aulas.html"><i class="fa-solid fa-school"></i> Aulas</a>
+        <a class="nav-link" href="comunicados.html"><i class="fa-solid fa-bullhorn"></i> Comunicados</a>
+        <a class="nav-link" href="evaluaciones.html"><i class="fa-solid fa-file-pen"></i> Evaluaciones</a>
+        <a class="nav-link" href="horarios.html"><i class="fa-solid fa-clock"></i> Horarios</a>
+        <a class="nav-link" href="inventario.html"><i class="fa-solid fa-boxes-stacked"></i> Inventario</a>
+        <a class="nav-link" href="padres.html"><i class="fa-solid fa-people-roof"></i> Padres</a>
+        <a class="nav-link" href="pagos.html"><i class="fa-solid fa-money-bill-wave"></i> Pagos</a>
+        <a class="nav-link" href="matriculas.html"><i class="fa-solid fa-clipboard-list"></i> Matrículas</a>
+        <a class="nav-link" href="cursos.html"><i class="fa-solid fa-book-open-reader"></i> Cursos</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="page-tag" id="modoFormulario">Formulario</span>
+          <h1 id="tituloFormulario">Nueva nota</h1>
+          <p>Completa los datos de la nota</p>
+        </div>
+      </header>
+
+      <section class="form-page-panel">
+        <div id="mensajeFormulario" class="info-box">Completa la información.</div>
+
+        <form id="formNota" class="form-grid-page">
+          <input type="hidden" id="mongoId" />
+
+          <div class="form-group">
+            <label for="IdNota">ID Nota</label>
+            <input type="number" id="IdNota" required />
+          </div>
+
+          <div class="form-group">
+            <label for="IdEstudiante">ID Estudiante</label>
+            <input type="number" id="IdEstudiante" required />
+          </div>
+
+          <div class="form-group">
+            <label for="IdCurso">ID Curso</label>
+            <input type="number" id="IdCurso" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Periodo">Periodo</label>
+            <input type="number" id="Periodo" min="1" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Nota">Nota</label>
+            <input type="number" id="Nota" min="0" max="100" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Estado">Estado</label>
+            <select id="Estado" required>
+              <option value="Registrada">Registrada</option>
+              <option value="Revisada">Revisada</option>
+            </select>
+          </div>
+
+          <div class="form-actions-page">
+            <a href="notas.html" class="btn btn-light">Volver</a>
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-floppy-disk"></i> Guardar
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/nota-form.js"></script>
+</body>
+</html>
