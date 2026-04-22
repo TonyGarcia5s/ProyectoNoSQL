@@ -1,3 +1,4 @@
+// Controlador de materias: gestiona las asignaturas del plan de estudios.
 const materiaService = require('../services/materia.service');
 
 const materiaController = {

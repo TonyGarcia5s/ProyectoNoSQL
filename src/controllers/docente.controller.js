@@ -1,3 +1,4 @@
+// Controlador de docentes: gestiona la información de los profesores.
 const docenteService = require('../services/docente.service');
 
 const docenteController = {

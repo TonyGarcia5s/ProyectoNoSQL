@@ -1,3 +1,4 @@
+// Controlador de horarios: gestiona los horarios de clases y actividades.
 const horarioService = require('../services/horario.service');
 
 const horarioController = {

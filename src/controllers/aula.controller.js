@@ -1,3 +1,4 @@
+// Controlador de aulas: gestiona los espacios físicos donde se imparten clases.
 const aulaService = require('../services/aula.service');
 
 const aulaController = {

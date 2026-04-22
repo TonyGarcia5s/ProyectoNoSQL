@@ -1,3 +1,4 @@
+// Controlador de grupos: gestiona las secciones o grupos de estudiantes.
 const grupoService = require('../services/grupo.service');
 
 const grupoController = {

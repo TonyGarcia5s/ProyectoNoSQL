@@ -1,3 +1,4 @@
+// Controlador de pagos: gestiona los pagos realizados por los estudiantes.
 const pagoService = require('../services/pago.service');
 
 const pagoController = {

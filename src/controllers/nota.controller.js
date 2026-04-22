@@ -1,3 +1,4 @@
+// Controlador de notas: gestiona las calificaciones obtenidas por los estudiantes.
 const notaService = require('../services/nota.service');
 
 const notaController = {

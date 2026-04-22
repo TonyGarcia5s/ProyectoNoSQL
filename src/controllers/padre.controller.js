@@ -1,3 +1,4 @@
+// Controlador de padres: gestiona la información de los padres de familia.
 const padreService = require('../services/padre.service');
 
 const padreController = {

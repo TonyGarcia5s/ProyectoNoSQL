@@ -1,3 +1,4 @@
+// Controlador de autenticación: gestiona el inicio de sesión de los usuarios.
 const Usuario = require("../models/usuario.model");
 
 exports.login = async (req, res) => {

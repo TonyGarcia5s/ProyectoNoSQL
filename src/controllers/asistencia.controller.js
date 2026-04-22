@@ -1,3 +1,4 @@
+// Controlador de asistencias: gestiona el registro de asistencia de estudiantes.
 const asistenciaService = require('../services/asistencia.service');
 
 const asistenciaController = {

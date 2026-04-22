@@ -1,3 +1,4 @@
+// Controlador de cursos: gestiona los cursos académicos ofrecidos.
 const cursoService = require('../services/curso.service');
 
 const cursoController = {

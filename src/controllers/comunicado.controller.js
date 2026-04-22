@@ -1,3 +1,4 @@
+// Controlador de comunicados: gestiona los avisos enviados a la comunidad escolar.
 const comunicadoService = require('../services/comunicado.service');
 
 const comunicadoController = {

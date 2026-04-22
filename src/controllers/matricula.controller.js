@@ -1,3 +1,4 @@
+// Controlador de matrículas: gestiona la inscripción de estudiantes a cursos.
 const matriculaService = require('../services/matricula.service');
 
 const matriculaController = {

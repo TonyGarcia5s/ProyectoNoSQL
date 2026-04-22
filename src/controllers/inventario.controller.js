@@ -1,3 +1,4 @@
+// Controlador de inventario: gestiona los recursos y materiales de la institución.
 const inventarioService = require('../services/inventario.service');
 
 const inventarioController = {

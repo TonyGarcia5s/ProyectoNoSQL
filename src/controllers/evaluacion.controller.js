@@ -1,3 +1,4 @@
+// Controlador de evaluaciones: gestiona los exámenes y pruebas aplicadas.
 const evaluacionService = require('../services/evaluacion.service');
 
 const evaluacionController = {

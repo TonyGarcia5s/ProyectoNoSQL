@@ -1,3 +1,4 @@
+// Controlador de estudiantes: gestiona la información de los alumnos.
 const estudianteService = require('../services/estudiante.service');
 
 const estudianteController = {
